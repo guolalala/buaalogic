@@ -3,3 +3,6 @@
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+bootstrap-5.1.0-dist.zip
+/bootstrap-5.1.0-dist/
+/template/
