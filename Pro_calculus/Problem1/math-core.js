@@ -2,7 +2,7 @@
  * @author: Bodan Chen
  * @Date: 2021-08-30 16:54:28
  * @LastEditors: Bodan Chen
- * @LastEditTime: 2021-08-30 16:54:28
+ * @LastEditTime: 2021-08-30 17:07:38
  * @Email: 18377475@buaa.edu.cn
  */
 //
@@ -30,7 +30,7 @@ $(function() {
     // });
     $("#mp1").click(function(){
         console.log("cnm");
-        $("#topcards").fadeToggle("slow");
+        //$("#topcards").fadeToggle("slow");
     });
 
 

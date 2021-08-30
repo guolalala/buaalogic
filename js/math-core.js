@@ -23,7 +23,7 @@ $(function() {
     // });
     $("#mp1").click(function(){
         console.log("cnm");
-        $("#topcards").fadeToggle("slow");
+        //$("#topcards").fadeToggle("slow");
     });
 
 
@@ -37,7 +37,7 @@ $(function() {
     var mubu = makeSVG('svg', {
         id: 'mubu',
         version: '1.1',
-        height: "500",
+        height: "585",
         width: $("#project-cont").width(),
     });
     $('div#project').append(mubu);

@@ -11,7 +11,7 @@
     margin-top: 0px !important;
   }
   #project .card{
-    display: none;
+    display: block;
     width: auto;
     height: 5.0rem;
     background-color: #1d1e28;
@@ -54,6 +54,9 @@
   }
   #input-container .item10 .btn-lg{
     padding: 5px 11px ;
+  }
+  #input-variable {
+    border-color: rgb(173,145,255);
   }
   
   

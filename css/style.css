@@ -55,6 +55,9 @@
 #input-container .item10 .btn-lg{
   padding: 5px 11px ;
 }
+#input-variable {
+  border-color: rgb(173,145,255);
+}
 
 
 .item0 {grid-area: blank;}
