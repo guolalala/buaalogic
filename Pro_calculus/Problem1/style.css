@@ -1,0 +1,90 @@
+#project{
+    display: inline-block;
+    /* display: none; */
+    /* background-color: white; */
+    
+  }
+  #project-cont{
+    display: block;
+  }
+  #project .cards{
+    margin-top: 0px !important;
+  }
+  #project .card{
+    display: none;
+    width: auto;
+    height: 5.0rem;
+    background-color: #1d1e28;
+    border-radius: 22px  !important;
+    border: 4px solid #ad91ff;
+    margin-bottom: 5px;
+  }
+  #project .card-title{
+    margin: 0;
+    font-size: 20px !important;
+  }
+  #project .card-text{
+    color:rgba(255, 255, 255, 0.46) !important;
+  }
+  #project .card-body{
+    display: inline-flex;
+    padding: 1.25rem;
+  }
+  #project #top-card-text{
+    margin-top: -10px;
+    margin-left: 30px;
+    text-align: center;
+  }
+  #project #top-card-text .card-text{
+    margin-bottom: 0;
+  }
+  
+  #mubu{
+    background-color: white;
+    border-radius: 10px;
+  }
+  #input-container .btn{
+    margin: 2px 1px;
+  }
+  
+  #input-container .btn-lg{
+    padding: 11px 22px ; 
+    width: -webkit-fill-available;
+    max-width: 120px;
+  }
+  #input-container .item10 .btn-lg{
+    padding: 5px 11px ;
+  }
+  
+  
+  .item0 {grid-area: blank;}
+  .item1 {grid-area: and;}
+  .item2 {grid-area: or;}
+  .item3 {grid-area: then;}
+  .item4 {grid-area: dthen;}
+  .item5 {grid-area: not;}
+  .item6 {grid-area: generate;}
+  .item7 {grid-area: clear;}
+  .item8 {grid-area: check;}
+  .item9 {grid-area: blank2;}
+  .item10 {grid-area: input;}
+  
+  #input-container{
+    display: grid;
+    grid-template-areas: 
+    "and then not blank blank input clear blank2"
+    "or dthen not blank blank generate check blank2";
+    grid-gap: 10px;
+    padding: 10px;
+  }
+  
+  
+  
+  
+  
+  @media screen and (min-width:1400px){
+    .container{
+      max-width: 1390px;
+    }
+    
+  }
