@@ -6,9 +6,13 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/now-ui-kit.css">
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,600,700,800,900&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script type="text/javascript" src="js/math-core.js"></script>
+
     <title>Your bot name</title>
 </head>
 <body>
@@ -22,12 +26,34 @@
             <li class="nav-item active">
                 <a class="nav-link" href="#/">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
-            </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
+                <a id="topfeatures" class="nav-link" href="#">Features</a>
+            </li> -->
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    命题演算
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a id="mp1" class="dropdown-item" href="#">Problem 1</a>
+                    <a id="mp2" class="dropdown-item" href="#">Problem 2</a>
+                    <div class="dropdown-divider"></div>
+                    <a id="mp3" class="dropdown-item" href="#">Problem 3</a>
+                </div>
+            </div>
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    谓词演算
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Problem 1</a>
+                    <a class="dropdown-item" href="#">Problem 2</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Problem 3</a>
+                </div>
+            </div>
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="#">Dashboard</a>
-            </li>
+            </li> -->
             <li class="nav-item">
                 <a class="nav-link" href="#">Subscribtion</a>
             </li>
@@ -49,6 +75,57 @@
         <button class="btn login-btn btn-outline-accent my-2 my-sm-0" style="font-size: 10px !important;font-family: poppins !important;">LOGIN</button>
     </div>
 </nav>
+
+<div id="project-cont" class="container">
+    <div id="project">
+        <div class="cards">
+        <div class="card" id="topcards">
+            <div class="card-body">
+                <h5 class="card-title">Problem #1</h5>
+                <div id="top-card-text">
+                <p class="card-text">请构造以下公式并填写正确的真值表</p>
+                <p class="card-text">p&q</p>
+            </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="input-container">
+        <div class="item0"></div>
+        <div class="item1">
+            <a class="btn btn-primary btn-lg" href="javascript:void(0);" onclick="testshow()" target="_blank" role="button">and</a>
+        </div>
+        <div class="item2">
+            <a class="btn btn-primary btn-lg" href="#start_link" target="_blank" role="button">or</a>
+        </div>
+        <div class="item3">
+            <a class="btn btn-primary btn-lg" href="#start_link" target="_blank" role="button">then</a>
+        </div>
+        <div class="item4">
+            <a class="btn btn-primary btn-lg" href="#start_link" target="_blank" role="button">dthen</a>
+        </div>
+        <div class="item5">
+            <a class="btn btn-primary btn-lg" href="#start_link" target="_blank" role="button">not</a>
+        </div>
+        <div class="item6">
+            <a class="btn btn-primary btn-lg" href="#start_link" target="_blank" role="button">generate</a>
+        </div>
+        <div class="item7">
+            <a class="btn btn-primary btn-lg" href="#start_link" target="_blank" role="button">clear</a>
+        </div>
+        <div class="item8">
+            <a class="btn btn-primary btn-lg" href="#start_link" target="_blank" role="button">check</a>
+        </div>
+        <div class="item9"></div>
+        <div class="item10">
+            <input placeholder="input variable" id="input-variable" type="text" class="btn-lg">
+        </div>
+    </div>
+    <!-- <div id="input-section"></div>
+    <div id="truth-table"></div>
+    <div id="hidden-container"></div> -->
+</div>
+
 <div class="heading">
     <h1 class="display-5 title">It's time to use Bot in your server.</h1>
     <p class="subtitle">Bot is a multi-purpose bot ready to skill up and boost up your Discord server<br />Also features auto-moderation, administration, music and much more!</p>
@@ -121,7 +198,7 @@
         <div class="nouridio">website designed by <a href="https://nouridio.com"> nouridio</a></div>
     </di
 </div>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="js/now-ui-kit.min.js"></script>
