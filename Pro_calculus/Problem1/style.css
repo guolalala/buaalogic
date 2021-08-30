@@ -46,6 +46,12 @@
   #input-container .btn{
     margin: 2px 1px;
   }
+  #input-container a{
+    color: white;
+  }
+  #input-container .operators {
+    font-size: 20px !important;
+  }
   
   #input-container .btn-lg{
     padding: 11px 22px ; 
@@ -58,7 +64,14 @@
   #input-variable {
     border-color: rgb(173,145,255);
   }
+
+  .table {
+    background-color: white;
+  }
   
+  div#hidden-container{
+    display: none;
+  }
   
   .item0 {grid-area: blank;}
   .item1 {grid-area: and;}

@@ -2,7 +2,7 @@
  * @author: Bodan Chen
  * @Date: 2021-08-30 16:50:21
  * @LastEditors: Bodan Chen
- * @LastEditTime: 2021-08-30 17:36:44
+ * @LastEditTime: 2021-08-31 01:02:18
  * @Email: 18377475@buaa.edu.cn
 -->
 <!DOCTYPE html>
@@ -98,31 +98,32 @@
         </div>
     </div>
     </div>
+    <div id="truth-table"></div>
     <div id="input-container">
         <div class="item0"></div>
         <div class="item1">
-            <a class="btn btn-primary btn-lg" href="javascript:void(0);" onclick="testshow()" target="_blank" role="button">and</a>
+            <a id="operator∧" class="btn btn-primary btn-lg operators"  role="button">∧</a>
         </div>
         <div class="item2">
-            <a class="btn btn-primary btn-lg" href="#start_link" target="_blank" role="button">or</a>
+            <a id="operator∨" class="btn btn-primary btn-lg operators" role="button">∨</a>
         </div>
         <div class="item3">
-            <a class="btn btn-primary btn-lg" href="#start_link" target="_blank" role="button">then</a>
+            <a id="operator→" class="btn btn-primary btn-lg operators" role="button">→</a>
         </div>
         <div class="item4">
-            <a class="btn btn-primary btn-lg" href="#start_link" target="_blank" role="button">dthen</a>
+            <a id="operator↔" class="btn btn-primary btn-lg operators" role="button">↔</a>
         </div>
         <div class="item5">
-            <a class="btn btn-primary btn-lg" href="#start_link" target="_blank" role="button">not</a>
+            <a id="operator~" class="btn btn-primary btn-lg operators" role="button">~</a>
         </div>
         <div class="item6">
-            <a class="btn btn-primary btn-lg" href="#start_link" target="_blank" role="button">generate</a>
+            <a id="generate-button" class="btn btn-primary btn-lg" role="button">generate</a>
         </div>
         <div class="item7">
-            <a class="btn btn-primary btn-lg" href="#start_link" target="_blank" role="button">clear</a>
+            <a id="clear-button" class="btn btn-primary btn-lg" role="button">clear</a>
         </div>
         <div class="item8">
-            <a class="btn btn-primary btn-lg" href="#start_link" target="_blank" role="button">check</a>
+            <a id="checka" class="btn btn-primary btn-lg" role="button">check</a>
         </div>
         <div class="item9"></div>
         <div class="item10">
@@ -133,70 +134,11 @@
     <div id="truth-table"></div>
     <div id="hidden-container"></div> -->
 </div>
+<div id="hidden-container"></div>
 
-<!-- <div class="heading">
-    <h1 class="display-5 title">It's time to use Bot in your server.</h1>
-    <p class="subtitle">Bot is a multi-purpose bot ready to skill up and boost up your Discord server<br />Also features auto-moderation, administration, music and much more!</p>
-    <a class="btn btn-primary btn-lg" href="#start_link" target="_blank" role="button">Get started</a>
-    <a class="btn btn-secondary btn-lg" href="#server_link" target="_blank" role="button">Add to server</a>
-    <br /><br /><br /><br /><br /><br />
-</div>
-<div class="features">
-    <div class="title">Features of Bot</div>
-    <div class="subtitle">We provide you the best features in Bot!</div>
-    <div class="cards">
-        <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">Future #1</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ex ante, mattis vel dapibus vel, tempor facilisis justo. Vivamus dignissim ut nisi eu consequat.</p>
-        </div>
-    </div>
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">Future #2</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ex ante, mattis vel dapibus vel, tempor facilisis justo. Vivamus dignissim ut nisi eu consequat.</p>
-            </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">Future #3</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ex ante, mattis vel dapibus vel, tempor facilisis justo. Vivamus dignissim ut nisi eu consequat.</p>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="statistics">
-    <div class="cards">
-        <div class="card statistic" style="width: 18rem;">
-            <div class="card-body">
-                <p class="card-title" style="font-size: 50px !important;line-height: 15px !important;letter-spacing: -0.06em !important;font-weight: bold !important;">000</h1>
-                <p style="font-weight: bold !important;font-size: 20px !important;">servers</p>
-            </div>
-        </div>
-        <div class="card statistic" style="width: 18rem;">
-            <div class="card-body">
-                <p class="card-title" style="font-size: 50px !important;line-height: 15px !important;letter-spacing: -0.06em !important;font-weight: bold !important;">000</h1>
-                <p style="font-weight: bold !important;font-size: 20px !important;">users</p>
-            </div>
-        </div>
-        <div class="card statistic" style="width: 18rem;">
-            <div class="card-body">
-                <p class="card-title" style="font-size: 50px !important;line-height: 15px !important;letter-spacing: -0.06em !important;font-weight: bold !important;">000</h1>
-                <p style="font-weight: bold !important;font-size: 20px !important;">channels</p>
-            </div>
-        </div>
-    </div>
-</div> -->
 <div class="page_end">
     <div class="start">
-        <!-- <div class="card">
-            <div class="card-body gs-card">
-                <div class="title">Ready to try Bot?</div>
-                <div class="subtitle">Invite Bot and start giving your server cool perks!</div>
-                <br />
-                <a class="btn btn-primary btn-lg" href="#start_link" role="button">Get started</a>
-            </div><br />
-        </div> -->
+        
     </div>
     <div class="footer">
         <div class="bot-footer">
