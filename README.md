@@ -4,7 +4,7 @@
 北航数学科学学院-数理逻辑课程实验平台
 
 ## 静态网站
-待补充
+https://guolalala.github.io/buaalogic/
 
 ## 使用教程
 
