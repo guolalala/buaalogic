@@ -51,13 +51,6 @@
     border-radius: 10px;
 }
 
-#mubu text {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
 #input-container .btn {
     margin: 2px 1px;
 }
