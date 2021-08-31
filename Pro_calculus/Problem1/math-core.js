@@ -2,7 +2,7 @@
  * @author: Bodan Chen
  * @Date: 2021-08-30 16:54:28
  * @LastEditors: Bodan Chen
- * @LastEditTime: 2021-08-31 02:13:20
+ * @LastEditTime: 2021-08-31 13:48:55
  * @Email: 18377475@buaa.edu.cn
  */
 //
@@ -148,7 +148,7 @@ $(function() {
         var iter=0;
         var ans = new Array(50).fill(0); // 储存每一个排列
 
-        var table_body=$("<tbody></tbody>");
+        var table_body=$("<tbody class=\"tabody\"></tbody>");
         function rang(num) { // 递归函数，生成 FFFF 到 TTTT 的排列
             if (num >= len_val) { // 递归最底层，已经生成了 TF 全排列在数组 ans 中
                 var row = $("<tr></tr>");
@@ -272,7 +272,7 @@ $(function() {
         box = [...input]; // ["p","&","q"]
         len_input = box.length; // 3
 
-        var table_head=$("<thead></thead>");
+        var table_head=$("<thead class=\"table-head\"></thead>");
         for (var i = 0; i < len_input; i++) { // 添加表头
             if (is_alpha(box[i]) && (!value.includes(box[i]))) {
                 value[len_val] = box[i];
@@ -286,16 +286,18 @@ $(function() {
         table.append(table_body);//添加tbody
         if (flag == 0) $("#truth-table").text("Invalid input")
         else {
-            $("#truth-table").append(
-                table,
-                $("<button></button>").attr({id: "check-button"}).text("Check").click(function () {
+            $("#truth-table").append(table);
+            var chebutton=$("<div id=\"check-container\"></div>");
+            var chespan=$("<span id=\"check-span\"></span>");
+            chespan.append(
+                $("<a></a>").attr({id:"check-button"}).click(function (){
                     var user_ans = new Array();
 
                     $("input.truth-radiobox:checked").each(function () {
                         user_ans.push($(this).val());
                     });
                     $("#truth-table-img").last().remove();
-                    $(this).after($("<div></div>").attr({
+                    $("#check-span").after($("<div></div>").attr({
                         id: "truth-table-img"
                     }).append(
                         $("<img>").attr({
@@ -303,9 +305,14 @@ $(function() {
                             height: 27,
                             width: 27,
                         })));
-                    $("#truth-table-img").width($("td").eq(len_val).outerWidth());          
+                    $("#truth-table-img").width($("td").eq(len_val).outerWidth()); 
                 })
+            )
+            chebutton.append(
+                chespan,
+                $("#truth-table-img")
             );
+            $("#truth-table").append(chebutton);
         }
     };
     $("#checka").click(function (){

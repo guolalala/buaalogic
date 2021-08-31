@@ -65,10 +65,72 @@
     border-color: rgb(173,145,255);
   }
 
+  #truth-table {
+    /* margin-top: 10px; */
+    display: -webkit-box;
+    /* display: none; */
+    
+  }
   .table {
+    margin-top: 10px;
     background-color: white;
+    border-radius: 10px;
+    width: 80%;
   }
   
+  #check-container {
+    margin-top: 50px;
+    width: 20%;
+    text-align: center;
+  }
+
+  #check-container span{
+    position: relative;
+    display: inline-flex;
+    width: 180px;
+    height: 55px;
+    margin: 0 15px;
+    perspective: 1000px;
+  }
+  #check-container span a{
+    font-size: 19px;
+    letter-spacing: 1px;
+    transform-style: preserve-3d;
+    transform: translateZ(-25px);
+    transition: transform .25s;
+    font-family: 'Montserrat', sans-serif;
+  }
+  #check-container span a:before,
+  #check-container span a:after{
+  position: absolute;
+  content: "CHECK";
+  height: 55px;
+  width: 180px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid black;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+#check-container span a:before{
+  color: #fff;
+  background: #000;
+  transform: rotateY(0deg) translateZ(25px);
+}
+#check-container span a:after{
+  color: #000;
+  background-color: #fff;
+  transform: rotateX(90deg) translateZ(25px);
+}
+#check-container span a:hover{
+  transform: translateZ(-25px) rotateX(-90deg);
+}
+#truth-table-img {
+  margin-top: 50px;
+    align-items: center;
+}
   div#hidden-container{
     display: none;
   }
