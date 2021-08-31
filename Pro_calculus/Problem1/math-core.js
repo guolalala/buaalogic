@@ -23,7 +23,7 @@ $(function() {
     // $(this).bind("contextmenu", function(e) { // Disable right click.
     //     e.preventDefault();
     // });
-    $("#mp1").click(function(){
+    $("#mp1").click(function() {
         console.log("cnm");
         //$("#topcards").fadeToggle("slow");
     });
@@ -35,14 +35,15 @@ $(function() {
             element.setAttribute(k, attrs[k]);
         return element;
     }
-    function clear_mubu(){
+
+    function clear_mubu() {
         $("line").remove(),
-        $("rect").remove(),
-        $("text").remove(),
-        $("div#truth-table").html("").css("display", "none");
+            $("rect").remove(),
+            $("text").remove(),
+            $("div#truth-table").html("").css("display", "none");
         //result=[];
     }
-    
+
 
     var mubu = makeSVG('svg', {
         id: 'mubu',
@@ -55,11 +56,11 @@ $(function() {
     // 加点
     mubu = $('svg#mubu');
     var interval = 20;
-    for (var i=0; i<=(mubu.attr('width')/interval); i++) {
-        for (var j=0; j<=(mubu.attr('height')/interval); j++) {
+    for (var i = 0; i <= (mubu.attr('width') / interval); i++) {
+        for (var j = 0; j <= (mubu.attr('height') / interval); j++) {
             var circle = makeSVG('circle', {
-                cx: interval*i,
-                cy: interval*j,
+                cx: interval * i,
+                cy: interval * j,
                 r: .75,
                 color: '#ddd',
             });
@@ -67,21 +68,21 @@ $(function() {
         };
     };
 
-    
+
     //generate option
     $("#generate-button").click(function split() {
         clear_mubu();
         var input = $("#input-variable")[0].value;
         //console.log(input);
-        var box0 = [...input];//['p','&','q']
+        var box0 = [...input]; //['p','&','q']
         var box = [];
-        var len=box0.length;
-        for(let i=0;i<len;i++){
-            if(box0[i]!=" "){
+        var len = box0.length;
+        for (let i = 0; i < len; i++) {
+            if (box0[i] != " ") {
                 box.push(box0[i]);
             }
         }
-        if(len==1){
+        if (len == 1) {
             $("#hidden-container").text(box[0]);
         }
         for (var item in box) {
@@ -94,7 +95,7 @@ $(function() {
             mubu.append($(makeSVG("rect", {
                 x: 20,
                 y: 45 * item + 20,
-                width: Math.max(text.get(0).getBBox().width + 10,20),
+                width: Math.max(text.get(0).getBBox().width + 10, 20),
                 height: 30,
                 stroke: "#aaa",
                 fill: "#fff",
@@ -113,27 +114,28 @@ $(function() {
     });
 
     //clear option
-    $("#clear-button").click(function (){
+    $("#clear-button").click(function() {
         clear_mubu();
     })
 
     //check option
     var result = new Array();
-    function is_same(arr1,arr2) {
-        let len1=arr1.length
-        let len2=arr2.length
+
+    function is_same(arr1, arr2) {
+        let len1 = arr1.length
+        let len2 = arr2.length
         if (len1 != len2) {
             return false
         }
-        for (let i=0;i<len1;i++) {
-            if (arr1[i]!=arr2[i]) {
+        for (let i = 0; i < len1; i++) {
+            if (arr1[i] != arr2[i]) {
                 return false
             }
         }
         return true
     }
-    
-    function truth_table(input){ // 真值表生成函数
+
+    function truth_table(input) { // 真值表生成函数
         //console.log($("#hidden-container").text());
         var value = new Array(50).fill(0);
         var flag = 1;
@@ -145,10 +147,11 @@ $(function() {
         function is_alpha(char) { // 判断字符是否是字母 p，q，r 等
             return operator.includes(char) ? false : true;
         }
-        var iter=0;
+        var iter = 0;
         var ans = new Array(50).fill(0); // 储存每一个排列
 
-        var table_body=$("<tbody class=\"tabody\"></tbody>");
+        var table_body = $("<tbody class=\"tabody\"></tbody>");
+
         function rang(num) { // 递归函数，生成 FFFF 到 TTTT 的排列
             if (num >= len_val) { // 递归最底层，已经生成了 TF 全排列在数组 ans 中
                 var row = $("<tr></tr>");
@@ -177,7 +180,7 @@ $(function() {
                         for: "F"
                     }).text("F"),
                 ));
-                
+
                 table_body.append(row);
                 //table.append(table_body);
                 return;
@@ -264,7 +267,7 @@ $(function() {
             if (num[0] == "1") return true; // 01栈最后的栈顶值即为计算的真值
             return false;
         }
-        
+
         $("#truth-table").html(undefined);
         if (input == "") $("#truth-table").text("There is no input");
 
@@ -272,7 +275,7 @@ $(function() {
         box = [...input]; // ["p","&","q"]
         len_input = box.length; // 3
 
-        var table_head=$("<thead class=\"table-head\"></thead>");
+        var table_head = $("<thead class=\"table-head\"></thead>");
         for (var i = 0; i < len_input; i++) { // 添加表头
             if (is_alpha(box[i]) && (!value.includes(box[i]))) {
                 value[len_val] = box[i];
@@ -283,17 +286,17 @@ $(function() {
         table_head.append($("<th></th>").text($("#hidden-container").text()));
         table.append(table_head);
         rang(0); // 递归，生成排列，计算真值，添加到表中
-        table.append(table_body);//添加tbody
+        table.append(table_body); //添加tbody
         if (flag == 0) $("#truth-table").text("Invalid input")
         else {
             $("#truth-table").append(table);
-            var chebutton=$("<div id=\"check-container\"></div>");
-            var chespan=$("<span id=\"check-span\"></span>");
+            var chebutton = $("<div id=\"check-container\"></div>");
+            var chespan = $("<span id=\"check-span\"></span>");
             chespan.append(
-                $("<a></a>").attr({id:"check-button"}).click(function (){
+                $("<a></a>").attr({ id: "check-button" }).click(function() {
                     var user_ans = new Array();
 
-                    $("input.truth-radiobox:checked").each(function () {
+                    $("input.truth-radiobox:checked").each(function() {
                         user_ans.push($(this).val());
                     });
                     $("#truth-table-img").last().remove();
@@ -305,7 +308,7 @@ $(function() {
                             height: 27,
                             width: 27,
                         })));
-                    $("#truth-table-img").width($("td").eq(len_val).outerWidth()); 
+                    $("#truth-table-img").width($("td").eq(len_val).outerWidth());
                 })
             )
             chebutton.append(
@@ -315,24 +318,22 @@ $(function() {
             $("#truth-table").append(chebutton);
         }
     };
-    $("#checka").click(function (){
+    $("#checka").click(function() {
         $("div#truth-table").html("");
         truth_table($("#hidden-container").text());
         $("div#truth-table").fadeIn(600);
     })
-    
-    var l_items=[];
+
+    var l_items = [];
     var l_operators = ["∧", "∨", "~", "→", "↔"];
-    mubu.click(function (e) {
+    mubu.click(function(e) {
         if (e.target.tagName !== 'rect') {
             $('rect').attr('stroke', '#aaa');
             l_items = [];
-        }     
-        else {
+        } else {
             if ($(e.target).attr('stroke') == 'red') {
                 $(e.target).attr('stroke', '#aaa');
-            }
-            else {
+            } else {
                 $(e.target).attr('stroke', 'red');
                 l_items.push([e.target, $(e.target).attr('text')])
             }
@@ -340,7 +341,7 @@ $(function() {
     });
 
     // 简化框图的宽高计算
-    $(".operators").click(function (e) {
+    $(".operators").click(function(e) {
         if (l_items.length == 1 && e.target.id == "operator~") {
             var temp = l_items.pop()
             var raw_text = "(~" + temp[1] + ")"
@@ -456,11 +457,11 @@ $(function() {
         };
     });
 
-    
+
     // // 用户控制区布局
     // var divinput = $('div#input-section');
     // var divbutton = $("<div></div>").attr('id', 'operator-button');
-    
+
     // // 联结词按钮区
     // var l_operators = ['∧', '∨', '~', '→', '↔'];
     // for (var item in l_operators) {
@@ -472,7 +473,7 @@ $(function() {
     //         })
     //     );
     // };
-    
+
     // // 输入变元
     // divinput.append(divbutton, 
     //     $("<input>").attr({
@@ -492,7 +493,7 @@ $(function() {
     //     for (let i=0; i<len; i++) {
     //         if(box[i]!=' ') box1.push(box[i])
     //     }
-        
+
     //     var mubu = $('svg#mubu');
     //     for (var item in box1) {
     //         var text = $(makeSVG('text', {
@@ -518,12 +519,12 @@ $(function() {
     //             fill: '#000',
     //         })).text(box1[item]);
     //         mubu.append(text);
-            
+
     //     }
     // });
     // divinput.append(item);
 
-    
+
 
     // $('.operator').click(function (e) {
     //     if (l_items.length == 1 && e.target.id == 'operator~') {
@@ -609,7 +610,7 @@ $(function() {
     //             y2: parseInt($(second[0]).attr('y'))+parseInt($(second[0]).attr('height')/2),
     //             stroke: '#000'
     //         });
-            
+
     //         var text = $(makeSVG('text', {
     //             x: 15,
     //             y: 40*item + 30,
@@ -651,9 +652,8 @@ $(function() {
     //     truth_table(text);
     //     $('div#truth-table').fadeIn(800);
     // });
-    
+
     // divinput.append(item);
 
     // draggable('table.tg');
 });
-
