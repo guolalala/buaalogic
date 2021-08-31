@@ -2,19 +2,9 @@
  * @author: Bodan Chen
  * @Date: 2021-08-30 16:54:28
  * @LastEditors: Bodan Chen
- * @LastEditTime: 2021-08-31 13:48:55
+ * @LastEditTime: 2021-08-31 20:25:58
  * @Email: 18377475@buaa.edu.cn
  */
-//
-// FormalLogicJS (a.k.a. MathematicalLogicJS, MathLogicJS)
-//
-// Copyright 2021 (c) Jim Zhang
-// 
-// Jim Zhang @ Github: https://github.com/BrandNewJimZhang
-// Jim Zhang's blog: http://jimzhang.me
-//
-// This project is based on JQuery 3.6.0.
-//
 
 "use strict";
 
@@ -28,6 +18,36 @@ $(function() {
         //$("#topcards").fadeToggle("slow");
     });
 
+    //随机数函数，返回不超过max的非负整数
+    function rand(max) {
+        return parseInt(Math.random(1) * max);
+    }
+    var vari = ['p', 'q', 'r', 's', 't'];
+    var vari_num = rand(2) == 1 ? 3 : 4; //变元个数
+    var operator = ["∧", "∨", "~", "→", "↔"];
+    //随机表达式
+    function equation() {
+        var vnum = vari_num;
+        var result = "p";
+        for (let i = 0; i < vnum - 1; i++) {
+            let temp = operator[rand(5)];
+            if (temp == '~') {
+                i--;
+                result = temp + result;
+            } else {
+                let tempvar = vari[rand(5)];
+                let tempnum = rand(2);
+                if (tempnum) {
+                    result = result + temp + tempvar;
+                } else {
+                    result = tempvar + temp + result;
+                }
+            }
+            result = '(' + result + ')';
+        }
+        return result;
+    }
+    $("#logic-expre").text(equation());
 
     function makeSVG(tag, attrs) { // svg + jQuery 有自身特性
         var element = document.createElementNS('http://www.w3.org/2000/svg', tag);
