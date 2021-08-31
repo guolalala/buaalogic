@@ -305,10 +305,10 @@ $(function() {
                     }).append(
                         $("<img>").attr({
                             src: is_same(result, user_ans) ? "../../img/true.svg" : "../../img/false.svg",
-                            height: 27,
-                            width: 27,
+                            height: 37,
+                            width: 37,
                         })));
-                    $("#truth-table-img").width($("td").eq(len_val).outerWidth());
+                    //$("#truth-table-img").width($("td").eq(len_val).outerWidth());
                 })
             )
             chebutton.append(

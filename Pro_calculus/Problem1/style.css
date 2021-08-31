@@ -51,6 +51,13 @@
     border-radius: 10px;
 }
 
+#mubu text {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 #input-container .btn {
     margin: 2px 1px;
 }
@@ -84,14 +91,35 @@
 }
 
 .table {
+    text-align: center;
+    font-size: 16px;
     margin-top: 10px;
     background-color: white;
     border-radius: 10px;
     width: 80%;
 }
 
+.table td {
+    padding: 0.5rem;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    zoom: 113%;
+}
+
+#truth-table label {
+    margin: 0 0.5rem 0.2rem 0.5rem;
+    /* margin-bottom: 0.2rem; */
+}
+
 #check-container {
-    margin-top: 50px;
+    /* margin-top: 50px; */
+    background-color: white;
+    padding-top: 50px;
+    border-radius: 10px;
+    margin: 10px;
+    margin-bottom: 16px;
     width: 20%;
     text-align: center;
 }
