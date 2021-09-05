@@ -1,7 +1,15 @@
+<!--
+ * @author: Bodan Chen
+ * @Date: 2021-09-05 16:39:54
+ * @LastEditors: Bodan Chen
+ * @LastEditTime: 2021-09-05 16:40:31
+ * @Email: 18377475@buaa.edu.cn
+-->
 # BUAAlogic
 
 ## 介绍
 北航数学科学学院-数理逻辑课程实验平台
+test
 
 ## 静态网站
 https://guolalala.github.io/buaalogic/
