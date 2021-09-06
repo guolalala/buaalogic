@@ -2,7 +2,7 @@
  * @author: Bodan Chen
  * @Date: 2021-09-06 11:45:21
  * @LastEditors: Bodan Chen
- * @LastEditTime: 2021-09-06 11:52:51
+ * @LastEditTime: 2021-09-06 15:57:16
  * @Email: 18377475@buaa.edu.cn
 -->
 <!DOCTYPE html>
@@ -87,6 +87,9 @@
     </nav>
 
     <div id="project-cont" class="container">
+        <div id="button-container">
+            <button id="testbutton" class="btn">BUTTON</button>
+        </div>
         <div id="project">
             <div class="cards">
                 <div class="card" id="topcards">
@@ -100,11 +103,16 @@
                 </div>
             </div>
         </div>
-        <div id="button-container">
 
-        </div>
         <div id="select-container">
 
+        </div>
+        <div id="check-section">
+            <span><a id="check-button" ></a></span>
+            <!--<div class="check-button-section">
+                <button id="check-button">Check</button>
+            </div>-->
+            <div id="answer-img"></div>
         </div>
         <!-- <div id="truth-table"></div>
         <div id="input-container">
@@ -142,7 +150,18 @@
     <div id="truth-table"></div>
     <div id="hidden-container"></div> -->
     </div>
-    <!-- <div id="hidden-container"></div> -->
+    <div id="hidden-container">
+        <div id="select-answer" class="sel sel--black-panther">
+            <select name="select-profession" id="select-profession">
+              <option value="" disabled>Profession</option>
+              <option value="hacker">Hacker</option>
+              <option value="gamer">Gamer</option>
+              <option value="developer">Developer</option>
+              <option value="programmer">Programmer</option>
+              <option value="designer">Designer</option>
+            </select>
+        </div>
+    </div>
 
     <div class="page_end">
         <div class="start">
