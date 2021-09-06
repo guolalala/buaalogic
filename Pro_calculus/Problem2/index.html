@@ -2,7 +2,7 @@
  * @author: Bodan Chen
  * @Date: 2021-09-06 11:45:21
  * @LastEditors: Bodan Chen
- * @LastEditTime: 2021-09-06 15:57:16
+ * @LastEditTime: 2021-09-06 21:54:28
  * @Email: 18377475@buaa.edu.cn
 -->
 <!DOCTYPE html>
@@ -27,9 +27,10 @@
 
 <body>
     <nav class="navbar navbar-expand-lg bg-transparent">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <img src="../../assets/menuIcon.svg" width="20px" height="20px" style="max-width: none !important;">
-    </button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <img src="../../assets/menuIcon.svg" width="20px" height="20px" style="max-width: none !important;">
+        </button>
         <img src="../../assets/math_white.svg" width="50" height="50">
         <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 20px !important">
             <ul class="navbar-nav mr-auto">
@@ -40,9 +41,10 @@
                 <a id="topfeatures" class="nav-link" href="#">Features</a>
             </li> -->
                 <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    命题演算
-                </a>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        命题演算
+                    </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a id="mp1" class="dropdown-item" href="#">Problem 1</a>
                         <a id="mp2" class="dropdown-item" href="#">Problem 2</a>
@@ -51,9 +53,10 @@
                     </div>
                 </div>
                 <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    谓词演算
-                </a>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        谓词演算
+                    </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">Problem 1</a>
                         <a class="dropdown-item" href="#">Problem 2</a>
@@ -69,9 +72,10 @@
                 </li>
             </ul>
             <div class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Documentation
-            </a>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Documentation
+                </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="../../img/README.pdf" target="_blank">使用说明</a>
                     <a class="dropdown-item" href="#">Tutorials</a>
@@ -82,13 +86,14 @@
             <div class="nav-item">
                 <a class="nav-link" href="#">About</a>
             </div>
-            <button class="btn login-btn btn-outline-accent my-2 my-sm-0" style="font-size: 10px !important;font-family: poppins !important;">LOGIN</button>
+            <button class="btn login-btn btn-outline-accent my-2 my-sm-0"
+                style="font-size: 10px !important;font-family: poppins !important;">LOGIN</button>
         </div>
     </nav>
 
     <div id="project-cont" class="container">
         <div id="button-container">
-            <button id="testbutton" class="btn">BUTTON</button>
+            <!-- <button id="testbutton" class="btn">BUTTON</button> -->
         </div>
         <div id="project">
             <div class="cards">
@@ -105,16 +110,57 @@
         </div>
 
         <div id="select-container">
-
+            <div class="Row-item" style="z-index: 6;">
+                <div class="equation">
+                    <p>p&gt;(p&gt;p)</p>
+                </div>
+                <div class="sel"><select name="select-derive" id="select-answer">
+                        <option value="" disabled="disabled">Guidelines</option>
+                        <option value="L1">L1</option>
+                        <option value="L2">L2</option>
+                        <option value="L3">L3</option>
+                        <option value="MP">MP</option>
+                        <option value="HS">HS</option>
+                    </select></div>
+            </div>
+            <hr class="rule">
+            <div class="Row-item" style="z-index: 5;">
+                <div class="equation">
+                    <p>p</p>
+                </div>
+                <div class="sel"><select name="select-derive" id="select-answer">
+                        <option value="" disabled="disabled">Guidelines</option>
+                        <option value="L1">L1</option>
+                        <option value="L2">L2</option>
+                        <option value="L3">L3</option>
+                        <option value="MP">MP</option>
+                        <option value="HS">HS</option>
+                    </select></div>
+            </div>
+            <hr class="rule">
+            <div class="Row-item" style="z-index: 4;">
+                <div class="equation">
+                    <p>p&gt;p</p>
+                </div>
+                <div class="sel"><select name="select-derive" id="select-answer">
+                        <option value="" disabled="disabled">Guidelines</option>
+                        <option value="L1">L1</option>
+                        <option value="L2">L2</option>
+                        <option value="L3">L3</option>
+                        <option value="MP">MP</option>
+                        <option value="HS">HS</option>
+                    </select></div>
+            </div>
+            <hr class="rule">
         </div>
-        <div id="check-section">
-            <span><a id="check-button" ></a></span>
-            <!--<div class="check-button-section">
-                <button id="check-button">Check</button>
-            </div>-->
-            <div id="answer-img"></div>
-        </div>
-        <!-- <div id="truth-table"></div>
+        <div id="check-container">
+            <span><a id="check-button" "></a></span>
+            <!--<div class=" check-button-section">
+                    <button id="check-button">Check</button>
+        </div>-->
+        <div id="answer-img"></div>
+    </div>
+    <!-- <div id="truth-table"></div>
         <div id="input-container">
             <div class="item0"></div>
             <div class="item1">
@@ -146,21 +192,12 @@
                 <input placeholder="input variable" id="input-variable" type="text" class="btn-lg">
             </div>
         </div> -->
-        <!-- <div id="input-section"></div>
+    <!-- <div id="input-section"></div>
     <div id="truth-table"></div>
     <div id="hidden-container"></div> -->
     </div>
     <div id="hidden-container">
-        <div id="select-answer" class="sel sel--black-panther">
-            <select name="select-profession" id="select-profession">
-              <option value="" disabled>Profession</option>
-              <option value="hacker">Hacker</option>
-              <option value="gamer">Gamer</option>
-              <option value="developer">Developer</option>
-              <option value="programmer">Programmer</option>
-              <option value="designer">Designer</option>
-            </select>
-        </div>
+
     </div>
 
     <div class="page_end">
@@ -170,12 +207,16 @@
         <div class="footer">
             <div class="bot-footer">
                 <img src="../../assets/mathword.svg" width="150"><br /> Copyright © [Bodan Chen] - 2021
-            </div><br/>
+            </div><br />
             <div class="nouridio">website designed by <a href="https://github.com/guolalala"> guolalala</a></div>
             </di </div>
             <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+                integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+                crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+                integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+                crossorigin="anonymous"></script>
             <script src="../../js/now-ui-kit.min.js"></script>
 </body>
 

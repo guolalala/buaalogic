@@ -1,7 +1,263 @@
-#topcards {
-    display: none;
+#project {
+    display: inline-block;
+    /* display: none; */
+    /* background-color: white; */
 }
 
-#hidden-container {
-    display: none;
+#project-cont {
+    display: block;
 }
+
+#project .cards {
+    margin-top: 0px !important;
+}
+
+#project .card {
+    display: block;
+    width: auto;
+    height: 5.0rem;
+    background-color: #1d1e28;
+    border-radius: 22px !important;
+    border: 4px solid #ad91ff;
+    margin-bottom: 5px;
+}
+
+#project .card-title {
+    margin: 0;
+    font-size: 20px !important;
+}
+
+#project .card-text {
+    color: rgba(255, 255, 255, 0.46) !important;
+}
+
+#project .card-body {
+    display: inline-flex;
+    padding: 1.25rem;
+}
+
+#project #top-card-text {
+    margin-top: -10px;
+    margin-left: 30px;
+    text-align: center;
+}
+
+#project #top-card-text .card-text {
+    margin-bottom: 0;
+}
+
+/**********select-container****************/
+#select-container {
+    background-color: white;
+}
+
+.Row-item{
+    display: flex;
+}
+
+
+#check-container {
+    /* margin-top: 50px; */
+    background-color: white;
+    padding-top: 50px;
+    border-radius: 10px;
+    margin: 10px;
+    margin-bottom: 16px;
+    width: 20%;
+    text-align: center;
+}
+
+#check-container span {
+    position: relative;
+    display: inline-flex;
+    width: 180px;
+    height: 55px;
+    margin: 0 15px;
+    perspective: 1000px;
+}
+
+#check-container span a {
+    font-size: 19px;
+    letter-spacing: 1px;
+    transform-style: preserve-3d;
+    transform: translateZ(-25px);
+    transition: transform .25s;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#check-container span a:before,
+#check-container span a:after {
+    position: absolute;
+    content: "CHECK";
+    height: 55px;
+    width: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 5px solid black;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+#check-container span a:before {
+    color: #fff;
+    background: #000;
+    transform: rotateY(0deg) translateZ(25px);
+}
+
+#check-container span a:after {
+    color: #000;
+    background-color: #fff;
+    transform: rotateX(90deg) translateZ(25px);
+}
+
+#check-container span a:hover {
+    transform: translateZ(-25px) rotateX(-90deg);
+}
+
+
+
+/* ===== Horizontal Rule ===== */
+.rule {
+    margin: 10px 0;
+    border: none;
+    height: 1.5px;
+    background-image: linear-gradient(left, #f0f0f0, #c9bbae, #f0f0f0);
+  }
+  
+  /* ===== Select Box ===== */
+  .sel {
+    font-size: 0.5rem;
+    display: inline-block;
+    margin: 3em 2em;
+    width: 100px;
+    background-color: transparent;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .sel::before {
+    position: absolute;
+    content: '\f063';
+    font-family: 'FontAwesome';
+    font-size: 2em;
+    color: #FFF;
+    right: 20px;
+    top: calc(50% - 0.5em);
+  }
+  
+  .sel.active::before {
+    transform: rotateX(-180deg);
+  }
+  
+  .sel__placeholder {
+    display: block;
+    font-family: 'Quicksand';
+    font-size: 2.3em;
+    color: #838e95;
+    padding: 0.2em 0.5em;
+    text-align: left;
+    pointer-events: none;
+    user-select: none;
+    visibility: visible;
+  }
+  
+  .sel.active .sel__placeholder {
+    visibility: hidden;
+  }
+  
+  .sel__placeholder::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0.2em 0.5em;
+    content: attr(data-placeholder);
+    visibility: hidden;
+  }
+  
+  .sel.active .sel__placeholder::before {
+    visibility: visible;
+  }
+  
+  .sel__box {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: -4px;
+    display: none;
+    list-style-type: none;
+    text-align: left;
+    font-size: 1em;
+    background-color: #FFF;
+    width: calc(100% + 8px);
+    box-sizing: border-box;
+  }
+  
+  .sel.active .sel__box {
+    display: block;
+    animation: fadeInUp 500ms;
+  }
+  
+  .sel__box__options {
+    display: list-item;
+    font-family: 'Quicksand';
+    font-size: 1.5em;
+    color: #838e95;
+    padding: 0.5em 1em;
+    user-select: none;
+  }
+  
+  .sel__box__options::after {
+    content: '\f00c';
+    font-family: 'FontAwesome';
+    font-size: 0.5em;
+    margin-left: 5px;
+    display: none;
+  }
+  
+  .sel__box__options.selected::after {
+    display: inline;
+  }
+  
+  .sel__box__options:hover {
+    background-color: #ebedef;
+  }
+  
+  /* ----- Select Box Black Panther ----- */
+  .sel {
+    border-bottom: 4px solid rgba(0, 0, 0, 0.3);
+  }
+  
+  .sel--black-panther {
+    z-index: 3;
+  }
+  
+  /* ----- Select Box Superman ----- */
+  .sel--superman {
+  /*   display: none; */
+    z-index: 2;
+  }
+  
+  /* ===== Keyframes ===== */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 20px, 0);
+    }
+  
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+  
+    to {
+      opacity: 0;
+    }
+  }
