@@ -47,6 +47,9 @@
     margin-bottom: 0;
 }
 
+.btn {
+    margin: 10px 10px;
+}
 
 
 /**********select-container****************/
@@ -133,7 +136,7 @@
 
 /* ===== Horizontal Rule ===== */
 .rule {
-    margin: 10px 0;
+    margin: 3px 0;
     border: none;
     height: 1.5px;
     background-image: linear-gradient(left, #f0f0f0, #c9bbae, #f0f0f0);

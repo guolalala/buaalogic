@@ -2,7 +2,7 @@
  * @author: Bodan Chen
  * @Date: 2021-09-06 11:45:43
  * @LastEditors: Bodan Chen
- * @LastEditTime: 2021-09-07 16:56:47
+ * @LastEditTime: 2021-09-07 19:53:48
  * @Email: 18377475@buaa.edu.cn
  */
 "use strict";
@@ -83,7 +83,7 @@ $(function () {
     var selected = 0;
     var ProLen = Problemdata.length;
     for (let i = 1; i <= ProLen; i++) {
-        var tempid = "button " + String(i);
+        var tempid = "button-" + String(i);
         var temptext = "Test " + String(i);
         $("#button-container").append(
             $("<button></button>").attr({
@@ -101,8 +101,6 @@ $(function () {
                 for (let j = 0; j < Problemdata[i - 1].DeriveLen; j++) {
                     var rowitem = $("<div></div>").attr({
                         class: "Row-item",
-                    }).css({
-                        "z-index": ProLen - j + 1,
                     });
 
                     var detest = $("<div></div>").attr({ class: "equation" });
@@ -111,6 +109,8 @@ $(function () {
                     );
                     var deselect = $("<div></div>").attr({
                         class: "sel"
+                    }).css({
+                        "z-index": ProLen - j + 1,
                     });
                     var tempselect = $("<select></select>").attr({
                         name: "select-derive",
