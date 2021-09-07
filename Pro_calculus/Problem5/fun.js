@@ -2,84 +2,84 @@
  * @author: Bodan Chen
  * @Date: 2021-09-06 11:45:43
  * @LastEditors: Bodan Chen
- * @LastEditTime: 2021-09-06 21:57:14
+ * @LastEditTime: 2021-09-07 16:56:47
  * @Email: 18377475@buaa.edu.cn
  */
 "use strict";
 
 var Problemdata = [{
-        Id: 1,
-        DeriveLen: 3,
-        Equation: [
-            "p>(p>p)",
-            "p",
-            "p>p"
-        ],
-        Answer: [
-            "L1",
-            "L2",
-            "L3"
-        ]
-    },
-    {
-        Id: 2,
-        DeriveLen: 3,
-        Equation: [
-            "p>(p>p)",
-            "p",
-            "p>p"
-        ],
-        Answer: [
-            "L1",
-            "L2",
-            "L3"
-        ]
-    },
-    {
-        Id: 3,
-        DeriveLen: 3,
-        Equation: [
-            "p>(p>p)",
-            "p",
-            "p>p"
-        ],
-        Answer: [
-            "L1",
-            "L2",
-            "L3"
-        ]
-    },
-    {
-        Id: 4,
-        DeriveLen: 3,
-        Equation: [
-            "p>(p>p)",
-            "p",
-            "p>p"
-        ],
-        Answer: [
-            "L1",
-            "L2",
-            "L3"
-        ]
-    },
-    {
-        Id: 5,
-        DeriveLen: 3,
-        Equation: [
-            "p>(p>p)",
-            "p",
-            "p>p"
-        ],
-        Answer: [
-            "L1",
-            "L2",
-            "L3"
-        ]
-    }
+    Id: 1,
+    DeriveLen: 3,
+    Equation: [
+        "p>(p>p)",
+        "p",
+        "p>p"
+    ],
+    Answer: [
+        "L1",
+        "L2",
+        "L3"
+    ]
+},
+{
+    Id: 2,
+    DeriveLen: 3,
+    Equation: [
+        "p>(p>p)",
+        "p",
+        "p>p"
+    ],
+    Answer: [
+        "L1",
+        "L2",
+        "L3"
+    ]
+},
+{
+    Id: 3,
+    DeriveLen: 3,
+    Equation: [
+        "p>(p>p)",
+        "p",
+        "p>p"
+    ],
+    Answer: [
+        "L1",
+        "L2",
+        "L3"
+    ]
+},
+{
+    Id: 4,
+    DeriveLen: 3,
+    Equation: [
+        "p>(p>p)",
+        "p",
+        "p>p"
+    ],
+    Answer: [
+        "L1",
+        "L2",
+        "L3"
+    ]
+},
+{
+    Id: 5,
+    DeriveLen: 3,
+    Equation: [
+        "p>(p>p)",
+        "p",
+        "p>p"
+    ],
+    Answer: [
+        "L1",
+        "L2",
+        "L3"
+    ]
+}
 ];
 
-$(function() {
+$(function () {
     var selected = 0;
     var ProLen = Problemdata.length;
     for (let i = 1; i <= ProLen; i++) {
@@ -89,13 +89,13 @@ $(function() {
             $("<button></button>").attr({
                 class: "btn",
                 id: tempid,
-            }).text(temptext).click(function() {
+            }).text(temptext).click(function () {
                 selected = i - 1;
                 //console.log(temptext);
-                $("#topcards").fadeOut(400);
-                $("#select-container").fadeOut(400);
-                $("#check-container").fadeOut(400);
-                document.getElementById("answer-img").innerHTML="";
+                $("#topcards").fadeOut(250);
+                $("#select-container").fadeOut(250);
+                $("#check-container").fadeOut(250);
+                document.getElementById("answer-img").innerHTML = "";
                 $("#select-container").html("");
 
                 for (let j = 0; j < Problemdata[i - 1].DeriveLen; j++) {
@@ -142,101 +142,147 @@ $(function() {
                         detest,
                         deselect,
                     );
-                    $("#select-container").append(rowitem,$("<hr>").attr({ class: "rule" }));
+                    $("#select-container").append(rowitem, $("<hr>").attr({ class: "rule" }));
                 };
 
+                /* ===== Logic for creating fake Select Boxes ===== */
+                $('.sel').each(function () {
+                    $(this).children('select').css('display', 'none');
 
+                    var $current = $(this);
+
+                    $(this).find('option').each(function (i) {
+                        if (i == 0) {
+                            $current.prepend($('<div>', {
+                                class: $current.attr('class').replace(/sel/g, 'sel__box')
+                            }));
+
+                            var placeholder = $(this).text();
+                            $current.prepend($('<span>', {
+                                class: $current.attr('class').replace(/sel/g, 'sel__placeholder'),
+                                text: placeholder,
+                                'data-placeholder': placeholder
+                            }));
+
+                            return;
+                        }
+
+                        $current.children('div').append($('<span>', {
+                            class: $current.attr('class').replace(/sel/g, 'sel__box__options'),
+                            text: $(this).text()
+                        }));
+                    });
+                });
+                // Toggling the `.active` state on the `.sel`.
+                $('.sel').click(function () {
+                    $(this).toggleClass('active');
+                });
+
+                // Toggling the `.selected` state on the options.
+                $('.sel__box__options').click(function () {
+                    var txt = $(this).text();
+                    var index = $(this).index();
+
+                    $(this).siblings('.sel__box__options').removeClass('selected');
+                    $(this).addClass('selected');
+
+                    var $currentSel = $(this).closest('.sel');
+                    $currentSel.children('.sel__placeholder').text(txt);
+                    $currentSel.children('select').prop('selectedIndex', index + 1);
+                });
                 $("#check-container").fadeIn(400);
                 $("#topcards").fadeIn(400);
                 $("#select-container").fadeIn(400);
             })
         );
     };
-    
+
     // $("#check-button").click(function) {
 
     // })
 
-    function is_same(arr1,arr2){
-        let len1=arr1.length;
-        let len2=arr2.length;
-        if(len1 != len2){
+    function is_same(arr1, arr2) {
+        let len1 = arr1.length;
+        let len2 = arr2.length;
+        if (len1 != len2) {
             return false;
         }
-        for (let i=0;i<len1;i++) {
-            if (arr1[i]!=arr2[i]) {
+        for (let i = 0; i < len1; i++) {
+            if (arr1[i] != arr2[i]) {
                 return false;
             }
         }
         return true;
         //return false;
     }
-    $("#check-button").click(function() {
+    $("#check-button").click(function () {
         var user_ans = new Array();
-        $("select#select-answer").each(function() {
+        $("select#select-answer").each(function () {
             user_ans.push($(this).val());
         });
-        var result=$("<img>").attr({
-            src:is_same(user_ans,Problemdata[selected].Answer)?"../../img/true.svg" : "../../img/false.svg",
-            height:37,
-            width:37
+        var result = $("<img>").attr({
+            src: is_same(user_ans, Problemdata[selected].Answer) ? "../../img/true.svg" : "../../img/false.svg",
+            height: 37,
+            width: 37
         });
-        document.getElementById("answer-img").innerHTML="";
+        document.getElementById("answer-img").innerHTML = "";
         $("#answer-img").append(result);
 
     });
 
 
-    /* ===== Logic for creating fake Select Boxes ===== */
-$('.sel').each(function() {
-    $(this).children('select').css('display', 'none');
-    
-    var $current = $(this);
-    
-    $(this).find('option').each(function(i) {
-      if (i == 0) {
-        $current.prepend($('<div>', {
-          class: $current.attr('class').replace(/sel/g, 'sel__box')
-        }));
-        
-        var placeholder = $(this).text();
-        $current.prepend($('<span>', {
-          class: $current.attr('class').replace(/sel/g, 'sel__placeholder'),
-          text: placeholder,
-          'data-placeholder': placeholder
-        }));
-        
-        return;
-      }
-      
-      $current.children('div').append($('<span>', {
-        class: $current.attr('class').replace(/sel/g, 'sel__box__options'),
-        text: $(this).text()
-      }));
-    });
-  });
-  
-  // Toggling the `.active` state on the `.sel`.
-  $('.sel').click(function() {
-    $(this).toggleClass('active');
-  });
-  
-  // Toggling the `.selected` state on the options.
-  $('.sel__box__options').click(function() {
-    var txt = $(this).text();
-    var index = $(this).index();
-    
-    $(this).siblings('.sel__box__options').removeClass('selected');
-    $(this).addClass('selected');
-    
-    var $currentSel = $(this).closest('.sel');
-    $currentSel.children('.sel__placeholder').text(txt);
-    $currentSel.children('select').prop('selectedIndex', index + 1);
-  });
-  
-  
-});
 
+
+
+});
+$(function () {
+    /* ===== Logic for creating fake Select Boxes ===== */
+    $('.sel').each(function () {
+        $(this).children('select').css('display', 'none');
+
+        var $current = $(this);
+
+        $(this).find('option').each(function (i) {
+            if (i == 0) {
+                $current.prepend($('<div>', {
+                    class: $current.attr('class').replace(/sel/g, 'sel__box')
+                }));
+
+                var placeholder = $(this).text();
+                $current.prepend($('<span>', {
+                    class: $current.attr('class').replace(/sel/g, 'sel__placeholder'),
+                    text: placeholder,
+                    'data-placeholder': placeholder
+                }));
+
+                return;
+            }
+
+            $current.children('div').append($('<span>', {
+                class: $current.attr('class').replace(/sel/g, 'sel__box__options'),
+                text: $(this).text()
+            }));
+        });
+    });
+
+    // Toggling the `.active` state on the `.sel`.
+    $('.sel').click(function () {
+        $(this).toggleClass('active');
+    });
+
+    // Toggling the `.selected` state on the options.
+    $('.sel__box__options').click(function () {
+        var txt = $(this).text();
+        var index = $(this).index();
+
+        $(this).siblings('.sel__box__options').removeClass('selected');
+        $(this).addClass('selected');
+
+        var $currentSel = $(this).closest('.sel');
+        $currentSel.children('.sel__placeholder').text(txt);
+        $currentSel.children('select').prop('selectedIndex', index + 1);
+    });
+})
 
 
 

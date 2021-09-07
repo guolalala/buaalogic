@@ -1,4 +1,5 @@
 #project {
+    width: 100%;
     display: inline-block;
     /* display: none; */
     /* background-color: white; */
@@ -50,13 +51,24 @@
 
 /**********select-container****************/
 #select-container {
-    background-color: white;
+    background-color:#eeebe7;
+}
+#select-container p{
+    margin-top: 1.5rem;
+    margin-bottom: 0;
 }
 
 .Row-item{
     display: flex;
+    padding: 10px;
 }
 
+
+.equation{
+    width: 60%;
+    text-align: center;
+    margin: 5px 10px 5px 5px;
+}
 
 #check-container {
     /* margin-top: 50px; */
@@ -132,7 +144,7 @@
     font-size: 0.5rem;
     display: inline-block;
     margin: 3em 2em;
-    width: 100px;
+    width: 150px;
     background-color: transparent;
     position: relative;
     cursor: pointer;
