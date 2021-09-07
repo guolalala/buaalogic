@@ -2,7 +2,7 @@
  * @author: Bodan Chen
  * @Date: 2021-09-06 11:45:21
  * @LastEditors: Bodan Chen
- * @LastEditTime: 2021-09-07 19:38:03
+ * @LastEditTime: 2021-09-07 23:24:20
  * @Email: 18377475@buaa.edu.cn
 -->
 <!DOCTYPE html>
@@ -47,10 +47,10 @@
                         命题演算
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a id="mp1" class="dropdown-item" href="#">Problem 1</a>
+                        <a id="mp1" class="dropdown-item" href="../Problem1/index.html">真值表</a>
                         <a id="mp2" class="dropdown-item" href="#">Problem 2</a>
                         <div class="dropdown-divider"></div>
-                        <a id="mp3" class="dropdown-item" href="#">Problem 3</a>
+                        <a id="mp3" class="dropdown-item" href="#">证明1</a>
                     </div>
                 </div>
                 <div class="nav-item dropdown">
@@ -100,10 +100,12 @@
             <div class="cards">
                 <div class="card" id="topcards">
                     <div class="card-body">
-                        <h5 class="card-title">Problem #1</h5>
+                        <div id="top-card-title-text">
+                        <h5 class="card-title">Prove #1</h5>
+                    </div>
                         <div id="top-card-text">
-                            <p class="card-text">请构造以下公式并填写正确的真值表</p>
-                            <p id="logic-expre" class="card-text"></p>
+                            <p class="card-text">请正确选择下列证明序列中所使用的公理或定理</p>
+                            <p id="logic-statement" class="card-text">(1) 为假设</p>
                         </div>
                     </div>
                 </div>
@@ -111,12 +113,14 @@
         </div>
 
         <div id="select-container">
-            <div class="Row-item" style="z-index: 6;">
+            <div class="Row-item">
                 <div class="equation">
-                    <p>p&gt;(p&gt;p)</p>
+                    <p class="equa-order">(1)</p>
+                    <p class="equa-text">A</p>
                 </div>
-                <div class="sel"><select name="select-derive" id="select-answer">
+                <div class="sel" style="z-index: 3;"><select name="select-derive" id="select-answer">
                         <option value="" disabled>Guidelines</option>
+                        <option value="Hypo">假设</option>
                         <option value="L1">L1</option>
                         <option value="L2">L2</option>
                         <option value="L3">L3</option>
@@ -125,12 +129,14 @@
                     </select></div>
             </div>
             <hr class="rule">
-            <div class="Row-item" style="z-index: 5;">
+            <div class="Row-item">
                 <div class="equation">
-                    <p>p</p>
+                    <p class="equa-order">(2)</p>
+                    <p class="equa-text">A→(B→A)</p>
                 </div>
-                <div class="sel"><select name="select-derive" id="select-answer">
+                <div class="sel" style="z-index: 2;"><select name="select-derive" id="select-answer">
                         <option value="" disabled>Guidelines</option>
+                        <option value="Hypo">假设</option>
                         <option value="L1">L1</option>
                         <option value="L2">L2</option>
                         <option value="L3">L3</option>
@@ -139,12 +145,14 @@
                     </select></div>
             </div>
             <hr class="rule">
-            <div class="Row-item" style="z-index: 4;">
+            <div class="Row-item" >
                 <div class="equation">
-                    <p>p&gt;p</p>
+                    <p class="equa-order">(3)</p>
+                    <p class="equa-text">(B→A)</p>
                 </div>
-                <div class="sel"><select name="select-derive" id="select-answer">
+                <div class="sel" style="z-index: 1;"><select name="select-derive" id="select-answer">
                         <option value="" disabled>Guidelines</option>
+                        <option value="Hypo">假设</option>
                         <option value="L1">L1</option>
                         <option value="L2">L2</option>
                         <option value="L3">L3</option>

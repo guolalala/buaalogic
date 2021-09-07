@@ -33,13 +33,18 @@
 }
 
 #project .card-body {
+    width: 100%;
     display: inline-flex;
     padding: 1.25rem;
 }
 
+#project #top-card-title-text{
+    width: 25%;
+}
 #project #top-card-text {
+    width: 60%;
     margin-top: -10px;
-    margin-left: 30px;
+    /* margin-left: 30px; */
     text-align: center;
 }
 
@@ -54,10 +59,13 @@
 
 /**********select-container****************/
 #select-container {
+    margin-top: 3px;
+    padding-bottom: 46px;
+    border-radius: 10px;
     background-color:#eeebe7;
 }
 #select-container p{
-    margin-top: 1.5rem;
+    margin-top: 1.2rem;
     margin-bottom: 0;
 }
 
@@ -68,19 +76,29 @@
 
 
 .equation{
+    display: inline-flex;
+    padding: 10px;
     width: 60%;
     text-align: center;
     margin: 5px 10px 5px 5px;
 }
+.equation .equa-text{
+    width: 100%;
+}
 
 #check-container {
+    width: 100%;
+    display: flex;
+    padding: 30px;
+    justify-content: center;
     /* margin-top: 50px; */
-    background-color: white;
-    padding-top: 50px;
+    background-color: #eeebe7;
+    /* padding-top: 30px; */
     border-radius: 10px;
-    margin: 10px;
+    /* margin: 10px; */
+    margin-top: -16px;
     margin-bottom: 16px;
-    width: 20%;
+    /* width: 20%; */
     text-align: center;
 }
 
@@ -89,7 +107,7 @@
     display: inline-flex;
     width: 180px;
     height: 55px;
-    margin: 0 15px;
+    margin: 0 30px;
     perspective: 1000px;
 }
 
@@ -132,6 +150,11 @@
     transform: translateZ(-25px) rotateX(-90deg);
 }
 
+#answer-img {
+    width: 70px;
+    padding: 5px;
+    margin: 0 30px;
+}
 
 
 /* ===== Horizontal Rule ===== */

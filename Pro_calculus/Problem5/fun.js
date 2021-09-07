@@ -2,79 +2,95 @@
  * @author: Bodan Chen
  * @Date: 2021-09-06 11:45:43
  * @LastEditors: Bodan Chen
- * @LastEditTime: 2021-09-07 19:53:48
+ * @LastEditTime: 2021-09-07 23:06:22
  * @Email: 18377475@buaa.edu.cn
  */
 "use strict";
-
+//var operator = ["∧", "∨", "~", "→", "↔"];
 var Problemdata = [{
     Id: 1,
     DeriveLen: 3,
     Equation: [
-        "p>(p>p)",
-        "p",
-        "p>p"
+        "A",
+        "A→(B→A)",
+        "(B→A)"
     ],
     Answer: [
+        "Hypo",
         "L1",
-        "L2",
-        "L3"
+        "MP"
     ]
 },
 {
     Id: 2,
-    DeriveLen: 3,
+    DeriveLen: 5,
     Equation: [
-        "p>(p>p)",
-        "p",
-        "p>p"
+        "~A",
+        "~A→(~B→~A)",
+        "(~B→~A)→(A→B)",
+        "~A→(A→B)",
+        "A→B"
     ],
     Answer: [
+        "Hypo",
         "L1",
-        "L2",
-        "L3"
+        "L3",
+        "HS",
+        "MP"
     ]
 },
 {
     Id: 3,
-    DeriveLen: 3,
+    DeriveLen: 7,
     Equation: [
-        "p>(p>p)",
-        "p",
-        "p>p"
+        "~~A",
+        "~~A→(~~~~A→~~A)",
+        "(~~~~A→~~A)→(~~A→A)",
+        "(~A→~~~A)→(~~A→A)",
+        "~~A→(~~A→A)",
+        "~~A→A",
+        "A"
     ],
     Answer: [
+        "Hypo",
         "L1",
-        "L2",
-        "L3"
+        "L3",
+        "L3",
+        "HS",
+        "MP",
+        "MP"
     ]
 },
 {
     Id: 4,
-    DeriveLen: 3,
+    DeriveLen: 5,
     Equation: [
-        "p>(p>p)",
-        "p",
-        "p>p"
+        "A→(B→C)",
+        "A",
+        "B→C",
+        "B",
+        "C"
     ],
     Answer: [
-        "L1",
-        "L2",
-        "L3"
+        "Hypo",
+        "Hypo",
+        "MP",
+        "Hypo",
+        "MP"
     ]
 },
 {
     Id: 5,
     DeriveLen: 3,
     Equation: [
-        "p>(p>p)",
-        "p",
-        "p>p"
+        "A→(B→A)",
+        "(A→(B→A))→(B→(A→(B→A)))",
+        "B→(A→(B→A))"
     ],
     Answer: [
         "L1",
-        "L2",
-        "L3"
+        "L1",
+        "MP"
     ]
 }
 ];
@@ -98,19 +114,32 @@ $(function () {
                 document.getElementById("answer-img").innerHTML = "";
                 $("#select-container").html("");
 
+                var hypotext="";
+                var hashypo=0;
                 for (let j = 0; j < Problemdata[i - 1].DeriveLen; j++) {
+
+                    if(Problemdata[i-1].Answer[j]=="Hypo"){
+                        hypotext+=("("+String(j+1)+") ");
+                        hashypo=1;
+                    }
+                    
                     var rowitem = $("<div></div>").attr({
                         class: "Row-item",
                     });
 
                     var detest = $("<div></div>").attr({ class: "equation" });
                     detest.append(
-                        $("<p></p>").text(Problemdata[i - 1].Equation[j])
+                        $("<p></p>").attr({
+                            class:"equa-order"
+                        }).text("("+String(j+1)+")"),
+                        $("<p></p>").attr({
+                            class:"equa-text"
+                        }).text(Problemdata[i - 1].Equation[j])
                     );
                     var deselect = $("<div></div>").attr({
                         class: "sel"
                     }).css({
-                        "z-index": ProLen - j + 1,
+                        "z-index": Problemdata[i - 1].DeriveLen - j ,
                     });
                     var tempselect = $("<select></select>").attr({
                         name: "select-derive",
@@ -120,6 +149,9 @@ $(function () {
                             value: "",
                             disabled: true,
                         }).text("Guidelines"),
+                        $("<option></option>").attr({
+                            value: "Hypo"
+                        }).text("假设"),
                         $("<option></option>").attr({
                             value: "L1"
                         }).text("L1"),
@@ -144,7 +176,10 @@ $(function () {
                     );
                     $("#select-container").append(rowitem, $("<hr>").attr({ class: "rule" }));
                 };
-
+                document.getElementById("logic-statement").innerText="";
+                hypotext+="为假设";
+                if(hashypo)
+                $("#logic-statement").text(hypotext);
                 /* ===== Logic for creating fake Select Boxes ===== */
                 $('.sel').each(function () {
                     $(this).children('select').css('display', 'none');
@@ -190,9 +225,16 @@ $(function () {
                     $currentSel.children('.sel__placeholder').text(txt);
                     $currentSel.children('select').prop('selectedIndex', index + 1);
                 });
-                $("#check-container").fadeIn(400);
-                $("#topcards").fadeIn(400);
-                $("#select-container").fadeIn(400);
+
+                // setTimeout(function (){
+
+                //     // Something you want delayed.
+                    
+                  
+                //   }, 800); // How long do you want the delay to be (in milliseconds)? 
+                  $("#check-container").fadeIn(400);
+                  $("#topcards").fadeIn(400);
+                  $("#select-container").fadeIn(400);
             })
         );
     };
@@ -227,6 +269,10 @@ $(function () {
         });
         document.getElementById("answer-img").innerHTML = "";
         $("#answer-img").append(result);
+        var buttonid="#button-"+String(selected+1);
+        $(buttonid).css({
+            "background-color": is_same(user_ans, Problemdata[selected].Answer) ?"#2bbe2b":"#d82f2f",
+        })
 
     });
 
