@@ -236,3 +236,66 @@ div#hidden-container {
         max-width: 1390px;
     }
 }
+
+@media screen and (max-width:1200px){
+    #check-container span a {
+        font-size: 17px;
+        letter-spacing: 1px;
+        transform-style: preserve-3d;
+        transform: translateZ(-25px);
+        transition: transform .25s;
+        font-family: 'Montserrat', sans-serif;
+    }
+    #check-container span {
+        position: relative;
+        display: inline-flex;
+        width: 100px;
+        height: 55px;
+        margin: 0 15px;
+        perspective: 1000px;
+    }
+    #check-container span a:before,
+    #check-container span a:after {
+        position: absolute;
+        content: "CHECK";
+        height: 55px;
+        width: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 5px solid black;
+        box-sizing: border-box;
+        border-radius: 5px;
+    }
+}
+@media screen and (max-width:768px){
+    #check-container span a {
+        font-size: 13px;
+        letter-spacing: 1px;
+        transform-style: preserve-3d;
+        transform: translateZ(-25px);
+        transition: transform .25s;
+        font-family: 'Montserrat', sans-serif;
+    }
+    #check-container span {
+        position: relative;
+        display: inline-flex;
+        width: 60px;
+        height: 55px;
+        margin: 0 15px;
+        perspective: 1000px;
+    }
+    #check-container span a:before,
+    #check-container span a:after {
+        position: absolute;
+        content: "CHECK";
+        height: 55px;
+        width: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 5px solid black;
+        box-sizing: border-box;
+        border-radius: 5px;
+    }
+}
